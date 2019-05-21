@@ -146,8 +146,18 @@ fun main() {
 
     // Invoke
 
+    /*
+    val kotlibBook = Book("ISBN1", "Programming Kotlin")
+    val created = kotlibBook()
+    println("result:: $created")
+     */
+
 
     // Functions literals
+
+    /*
+    val reverseCustom: (String) -> String = {it.reversed()}
+    */
 
 
     // Varargs and Spread operator
