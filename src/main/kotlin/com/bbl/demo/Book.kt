@@ -1,30 +1,16 @@
 package com.bbl.demo
 
-import com.bbl.demo.external.Book as BookDTO
-import java.util.*
+import kotlin.random.Random
 
-data class Book(val isbn: String, val title: String, var price: Number=-1){
-
-    val capitalizedTitle: String
-    var availability: Boolean
-    get() = Random().nextBoolean()
+data class Book(val isbn: String, val title: String, val price: Int=-1) {
+    /*var isAvailable: Boolean = false
+    get() = isAvailable
     set(value) {
-        availability = value
-     }
+        isAvailable = true
+    }*/
 
-    constructor(book: BookDTO): this(book.isbn, book.name)
-
-    init {
-        capitalizedTitle = title.capitalize()
+    operator fun plus(book: Book): Book{
+        return Book(isbn + book.isbn, title + " " + book.title, price + book.price)
     }
-
-    fun isAvailable(): Boolean {
-        return Random().nextBoolean()
-    }
-
-    operator fun invoke(): Book{
-        return Book(isbn, title)
-    }
-
 
 }

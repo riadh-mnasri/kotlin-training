@@ -1,9 +1,15 @@
 package com.bbl.demo
 
-class Library(val books: List<Book>) {
-
-    fun findBookByIsbn(isbn: String): Book?{
-        return books.firstOrNull() { it.isbn == isbn }
+class Library {
+    companion object {
+        private val books: List<Book> = emptyList()
+        fun findBookByIsbn(isbn: String): BookResult {
+            val result = books.firstOrNull { it.isbn == isbn }
+            return when (result) {
+                null -> BookResult.BookNotFound
+                else -> BookResult.BookFound(isbn)
+            }
+        }
     }
 
 }
